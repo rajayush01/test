@@ -1,0 +1,11 @@
+/* Original site stylesheets, ported as-is. Tailwind's preflight/base
+   reset is disabled (see tailwind.config.js) so these remain the
+   sole source of truth for the site's look, exactly as authored. */
+@import "./styles/style.css";
+@import "./styles/Navpagescss.css";
+@import "./styles/pillar-layout.css";
+@import "./styles/responsive.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

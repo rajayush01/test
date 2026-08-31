@@ -1,0 +1,2465 @@
+/* =========================================
+
+   1. VARIABLES & GLOBAL STYLES
+
+========================================= */
+
+:root {
+
+    /* Primary Brand Colours */
+
+    --ever-teal: #007078;
+
+    --prime-yellow: #FFC600;
+
+    --humble-beige: #F8F4E1;
+
+    --white: #FFFFFF;
+
+    
+
+    /* Secondary Brand Colours */
+
+    --electric-cyan: #0083C1;
+
+    --sure-orange: #EE7623;
+
+    --emergent-green: #61A60E;
+
+    
+
+    /* Layout Variables */
+
+    --grid-margin: 5vw;
+
+    --card-shadow: 0 10px 30px rgba(0, 112, 120, 0.08);
+
+    --hover-shadow: 0 15px 35px rgba(0, 112, 120, 0.15);
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+
+    background-color: var(--humble-beige);
+
+    font-family: 'Monda', Tahoma, sans-serif;
+
+    font-weight: 400; /* Level 3 Body Text */
+
+    margin: 0;
+
+    padding: 0;
+
+    color: var(--ever-teal);
+
+    overflow-x: hidden; 
+
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+
+    font-family: 'Monda', Tahoma, sans-serif;
+
+    font-weight: 700; /* Level 1 Heading */
+
+}
+
+
+
+/* =========================================
+
+   2. HEADER & NAVIGATION
+
+========================================= */
+
+.main-header {
+
+    background-color: var(--white);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 1.25rem var(--grid-margin);
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+
+.main-header .logo {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 2rem;
+
+    align-items: center;
+
+}
+
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: var(--ever-teal);
+
+    font-weight: 700;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.5px;
+
+    position: relative;
+
+    padding-bottom: 4px;
+
+    transition: color 0.3s ease;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.nav-links a::after {
+
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 0%;
+
+    height: 2px;
+
+    background-color: var(--prime-yellow);
+
+    transition: width 0.3s ease;
+
+}
+
+
+
+.nav-links a:hover::after,
+
+.nav-links a.active-nav::after {
+
+    width: 100%;
+
+}
+
+
+
+.nav-links a.active-nav, .nav-links a:hover {
+
+    color: var(--ever-teal);
+
+}
+
+
+
+/* =========================================
+
+   3. THE SUM VISUAL DEVICE (CHAMFERS)
+
+========================================= */
+
+.cut-top-right {
+
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+
+}
+
+
+
+.cut-bottom-left {
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+
+}
+
+
+
+.cut-both {
+
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+
+}
+
+
+
+/* =========================================
+
+   4. HERO / VIDEO BANNER
+
+========================================= */
+
+.video-banner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 45vh; 
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 4rem; 
+
+    margin-bottom: 2rem; 
+
+    overflow: hidden;
+
+}
+
+
+
+.video-banner.cut-bottom-left {
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 60px 100%, 0 calc(100% - 60px));
+
+}
+
+
+
+.bg-video {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover; 
+
+    z-index: 1;
+
+}
+
+
+
+.video-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(to right, rgba(0, 112, 120, 0.9), rgba(0, 112, 120, 0.6));
+
+    z-index: 2;
+
+}
+
+
+
+.banner-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    color: var(--white);
+
+    max-width: 900px;
+
+    text-align: center;
+
+    margin: 0 auto;
+
+}
+
+
+
+.banner-content h1 {
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    text-transform: uppercase;
+
+    margin: 0 0 1rem 0;
+
+    line-height: 1.1;
+
+    color: var(--prime-yellow);
+
+}
+
+
+
+.banner-content p {
+
+    font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+
+    margin: 0 0 1.5rem 0;
+
+    opacity: 0.95;
+
+    letter-spacing: 0.5px;
+
+    line-height: 1.5;
+
+}
+
+
+
+.brand-promise-tag {
+
+    display: inline-block;
+
+    border: 2px solid var(--prime-yellow);
+
+    color: var(--prime-yellow);
+
+    padding: 10px 20px;
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    background: rgba(0, 112, 120, 0.3);
+
+}
+
+
+
+/* =========================================
+
+   5. MODERN SEARCH COMPONENT
+
+========================================= */
+
+.search-container {
+
+    max-width: 800px;
+
+    margin: -4.5rem auto 5rem auto;
+
+    position: relative;
+
+    z-index: 10;
+
+    padding: 0 2rem;
+
+}
+
+
+
+.search-box {
+
+    display: flex;
+
+    background: var(--white);
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 40px rgba(0, 112, 120, 0.2);
+
+    border: 3px solid var(--white);
+
+}
+
+
+
+.search-box input {
+
+    flex: 1;
+
+    padding: 1.5rem 2rem;
+
+    border: none;
+
+    font-family: 'Monda', Tahoma, sans-serif;
+
+    font-size: 1.15rem;
+
+    color: var(--ever-teal);
+
+    outline: none;
+
+}
+
+
+
+.search-box input::placeholder {
+
+    color: #999;
+
+}
+
+
+
+.search-box button {
+
+    background-color: var(--prime-yellow);
+
+    color: var(--ever-teal);
+
+    border: none;
+
+    padding: 0 3rem;
+
+    font-weight: 700;
+
+    font-size: 1.1rem;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+
+}
+
+
+
+.search-box button:hover {
+
+    background-color: var(--ever-teal);
+
+    color: var(--prime-yellow);
+
+}
+
+
+
+.search-hint {
+
+    text-align: center;
+
+    margin-top: 1rem;
+
+    font-size: 0.95rem;
+
+    color: #555;
+
+}
+
+
+
+.search-hint a {
+
+    color: var(--ever-teal);
+
+    text-decoration: none;
+
+    border-bottom: 1px dotted var(--ever-teal);
+
+    margin: 0 0.25rem;
+
+}
+
+
+
+.search-hint a:hover {
+
+    color: #000;
+
+}
+
+
+
+/* =========================================
+
+   6. PRIORITY USER JOURNEYS
+
+========================================= */
+
+.journeys-section {
+
+    max-width: 1400px;
+
+    margin: 0 auto 5rem auto;
+
+    padding: 0 2rem;
+
+}
+
+
+
+.section-header {
+
+    text-align: center;
+
+    margin-bottom: 3rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+
+.section-header h2 {
+
+    color: var(--ever-teal);
+
+    text-transform: uppercase;
+
+    font-size: 1.5rem;
+
+    margin: 0 0 0.5rem 0;
+
+}
+
+
+
+.accent-line {
+
+    width: 60px;
+
+    height: 3px;
+
+    background-color: var(--prime-yellow);
+
+}
+
+
+
+.journeys-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 1.5rem;
+
+}
+
+
+
+.journey-card {
+
+    background-color: var(--white);
+
+    color: var(--ever-teal);
+
+    padding: 2rem;
+
+    text-decoration: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    min-height: 140px;
+
+    box-shadow: var(--card-shadow);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    border: 1px solid rgba(0, 112, 120, 0.05);
+
+}
+
+
+
+.journey-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--hover-shadow);
+
+    background-color: var(--ever-teal);
+
+    color: var(--white);
+
+}
+
+
+
+.journey-card .need {
+
+    font-size: 0.95rem;
+
+    opacity: 0.8;
+
+    margin-bottom: 1rem;
+
+}
+
+
+
+.action-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+
+.journey-card .action {
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    line-height: 1.3;
+
+}
+
+
+
+.journey-card .arrow {
+
+    font-size: 1.5rem;
+
+    color: var(--prime-yellow);
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.journey-card:hover .arrow {
+
+    transform: translateX(5px);
+
+}
+
+
+
+/* =========================================
+
+   SECTION 6: Suzlon is Evolving (Screenshot Redesign)
+
+========================================= */
+
+.suzlon-evolving-modern {
+
+    position: relative;
+
+    background: linear-gradient(rgba(10, 25, 35, 0.75), rgba(5, 15, 25, 0.85)), url('/images/SUZLON IS EVOLVING.jpg') no-repeat center center/cover;
+
+background-attachment: fixed; /* Creates the smooth parallax scrolling effect */
+
+    color: var(--white);
+
+    padding: 120px 8%;
+
+    overflow: hidden;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.evolving-content-wrapper {
+
+    max-width: 800px;
+
+    position: relative;
+	margin: 0 auto;
+
+    z-index: 2;
+
+}
+
+
+
+.evolving-text-group .intro-sub {
+
+    font-size: 1.05rem;
+
+    line-height: 1.6;
+
+    color: #D0DCD0;
+
+    margin-bottom: 1.5rem;
+
+    max-width: 550px;
+	
+	;
+
+}
+
+
+
+.yellow-bar {
+
+    width: 40px;
+
+    height: 4px;
+
+    background-color: var(--prime-yellow);
+
+    margin-bottom: 2.5rem;
+
+}
+
+
+
+.evolving-text-group .body-desc {
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+    color: #C0C8C5;
+
+    margin-bottom: 3rem;
+
+    max-width: 650px;
+
+}
+
+
+
+.suzlon-evolving-modern h2 {
+
+    font-size: clamp(2rem, 3.2vw, 3rem);
+
+    line-height: 1.2;
+
+    text-transform: uppercase;
+
+    margin-bottom: 3rem;
+
+    color: var(--white);
+
+    letter-spacing: 0.5px;
+
+}
+
+
+
+.highlight-yellow {
+
+    color: var(--prime-yellow);
+
+}
+
+
+
+.evolving-text-group .history-desc {
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+    color: #B5C0BC;
+
+    margin-bottom: 1.25rem;
+
+    max-width: 600px;
+
+}
+
+
+
+/* Brand Crosshair graphic element matching the layout */
+
+.brand-crosshair {
+
+    position: absolute;
+
+    bottom: 40px;
+
+    right: 60px;
+
+    width: 60px;
+
+    height: 60px;
+
+    background-image: 
+
+        linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+
+        linear-gradient(to bottom, rgba(255, 198, 0, 0.9) 1px, transparent 1px);
+
+    background-size: 100% 100%;
+
+    z-index: 3;
+
+}
+
+
+
+.brand-crosshair::after {
+
+    content: '';
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 1px solid var(--prime-yellow);
+
+    border-radius: 50%;
+
+}
+
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+
+    .suzlon-evolving-modern {
+
+        padding: 80px 5%;
+
+    }
+
+    .brand-crosshair {
+
+        display: none;
+
+    }
+
+}
+
+
+
+/* =========================================
+   SECTION 7: Full-Stack Solutions (Matched to Section 3 Design)
+========================================= */
+.full-stack-modern-grid {
+    background-color: var(--humble-beige);
+}
+
+.full-stack-modern-grid .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1400px;
+    
+    /* Changing this to 'auto' pushes the entire grid into the dead center of the screen */
+    margin: 0 auto; 
+}
+.full-stack-modern-grid h2 {
+    font-size: clamp(2rem, 3vw, 3.2rem); 
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.heading-teal {
+    color: var(--ever-teal); 
+    display: inline-block;
+    width: fit-content;
+}
+
+/* Inherits the .heading-yellow block styling created in Section 3 */
+
+.full-stack-modern-grid .image-content {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 112, 120, 0.1); 
+}
+
+.full-stack-modern-grid .image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* =========================================
+   Responsive Overrides for Section 7 Grid
+========================================= */
+@media (max-width: 992px) {
+    .full-stack-modern-grid .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .full-stack-modern-grid .image-content {
+        min-height: 400px;
+    }
+}
+
+
+/* =========================================
+
+   8. BRAND BOOK STYLES (NEW SECTIONS)
+
+========================================= */
+
+.brand-book-section {
+
+    padding: 30px 8%;
+
+    overflow: hidden;
+
+}
+
+
+
+.brand-book-section h2 {
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* SECTION 3: The World is Changing (Beige Redesign) */
+
+.world-changing-modern {
+
+    background-color: var(--humble-beige);
+
+    padding: 100px 5%;
+
+    
+
+}
+
+
+
+.world-changing-modern .content-wrapper {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.world-changing-modern h2 {
+
+    font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+
+    line-height: 1.15;
+
+    margin-bottom: 2rem;
+
+    text-transform: uppercase;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+}
+
+
+
+.heading-green {
+
+    color: var(--emergent-green); 
+
+}
+
+
+
+.heading-yellow {
+
+    color: var(--prime-yellow); 
+
+    
+
+    display: inline-block;
+
+    width: fit-content;
+
+}
+
+
+
+.heading-green {
+
+    color: var(--green); 
+
+   
+
+    display: inline-block;
+
+    width: fit-content;
+
+}
+
+
+
+.world-changing-modern p {
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    color: #4A4A4A; 
+
+    margin-bottom: 1.5rem;
+
+}
+
+
+
+.world-changing-modern .image-content {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 450px;
+
+    position: relative;
+
+    box-shadow: 0 20px 40px rgba(0, 112, 120, 0.15); 
+
+}
+
+
+
+.world-changing-modern .image-content img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+
+/* SECTION 6: Suzlon is Evolving */
+
+.suzlon-evolving {
+
+    background-color: var(--ever-teal);
+
+    color: var(--white);
+
+    text-align: center;
+
+    position: relative;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+.suzlon-evolving h2 {
+
+    color: var(--prime-yellow);
+
+    font-size: 2.8rem;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.suzlon-evolving h3 {
+
+    font-size: 1.6rem;
+
+    margin-bottom: 30px;
+
+    line-height: 1.5;
+
+    color: var(--white);
+
+}
+
+
+
+.suzlon-evolving p {
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+
+    max-width: 800px;
+
+    margin: 0 auto 30px auto;
+
+    color: var(--humble-beige);
+
+}
+
+
+
+.upscale-text {
+
+    font-weight: 700; 
+
+    color: var(--prime-yellow) !important; 
+
+    margin-bottom: 25px !important; 
+
+    letter-spacing: 1px;
+
+    font-size: 1.25rem !important;
+
+}
+
+
+
+.tech-stack {
+
+    display: inline-block;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    padding: 30px 50px;
+
+    border-left: 6px solid var(--prime-yellow);
+
+    font-size: 1.25rem;
+
+    font-weight: 600; /* Level 2 Sub-Heading equivalent */
+
+    letter-spacing: 1.5px;
+
+}
+
+
+
+.highlight-text {
+
+    color: var(--prime-yellow);
+
+}
+
+
+
+.tech-sub-text {
+
+    font-size: 0.95rem;
+
+    font-weight: 400;
+
+    margin-top: 15px;
+
+    display: inline-block;
+
+    color: #A0BBD0;
+
+}
+
+
+
+/* SECTION 7: Our Logo */
+
+.our-logo {
+
+    background-color: var(--white);
+
+}
+
+
+
+.our-logo h2 {
+
+    color: var(--ever-teal);
+
+    font-size: 3rem;
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+
+
+.logo-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 40px;
+
+    max-width: full;
+
+    margin: 0 auto;
+
+}
+
+
+
+.logo-card {
+
+/*    background: var(--humble-beige);*/
+
+    padding: 50px 40px;
+	max-width: 900px;
+
+/*    border-radius: 0 50px 0 50px; */
+
+/*    transition: all 0.4s ease;*/
+
+/*    border: 1px solid rgba(0,0,0,0.03);*/
+
+}
+
+
+
+.logo-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 50px rgba(0, 112, 120, 0.15);
+
+    border-color: var(--ever-teal);
+
+}
+
+
+
+.logo-card span {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 50px;
+
+    height: 50px;
+
+    background: var(--ever-teal);
+
+    color: var(--prime-yellow);
+
+    border-radius: 50%;
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.logo-card p {
+
+    color: #4A4A4A;
+
+    line-height: 1.7;
+
+    font-size: 1.05rem;
+
+}
+
+/* =========================================
+   SECTION 8: Solar & Storage Visual Banner (Parallax & Restored Text)
+========================================= */
+.solar-storage-banner {
+    width: 100%;
+    background-color: var(--humble-beige);
+/*    padding-bottom: 2rem; */
+}
+
+.banner-image-container.parallax-bg {
+    width: 100%;
+    height: 65vh; 
+    min-height: 550px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Parallax Background Implementation */
+    background-image: url('/images/WindSolarStorage.jpg');
+/*    background-attachment: fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Gradient to ensure the off-white text pops against lighter sky backgrounds */
+.teal-tint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 112, 120, 0.5) 0%, rgba(0, 112, 120, 0) 65%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Restored Typographic Overlay Positioning & Styling */
+.banner-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 8%; /* Matches the padding of your other sections */
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Monda', Tahoma, sans-serif;
+}
+
+.banner-text-overlay .text-line-1 {
+    font-size: clamp(0.6rem, 1vw, 0.9rem);
+    color: var(--humble-beige);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: -2px; 
+}
+
+.banner-text-overlay .text-line-2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: var(--humble-beige);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.9;
+}
+
+.banner-text-overlay .text-line-3 {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    margin-top: -2px;
+}
+
+.banner-text-overlay .yellow-highlight {
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: var(--prime-yellow);
+    font-weight: 700;
+    line-height: 0.9;
+}
+
+.banner-text-overlay .stacked-text {
+    font-size: clamp(0.6rem, 1vw, 0.9rem);
+    color: var(--humble-beige);
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 992px) {
+    .banner-text-overlay {
+        left: 5%;
+    }
+    
+    .banner-text-overlay .text-line-3 {
+        gap: 5px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-image-container.parallax-bg {
+        background-attachment: scroll; /* Disables parallax on mobile for performance */
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    /* Ensure the text breaks nicely if the screen is very narrow */
+    .banner-text-overlay .text-line-2,
+    .banner-text-overlay .yellow-highlight {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+}
+
+/* =========================================
+
+   9. SUPPORT & BUTTONS
+
+========================================= */
+
+.support-section {
+
+    width: 100%;
+
+    background-color: var(--ever-teal);
+
+    color: var(--white);
+
+    padding: 1rem var(--grid-margin); 
+
+    text-align: center;
+
+    margin-top: 0; 
+
+}
+
+
+
+.support-content {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.support-content h2 {
+
+    font-size: 2.5rem;
+
+    color: var(--prime-yellow);
+
+    margin: 0 0 1rem 0;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.support-content p {
+
+    font-size: 1.2rem;
+
+    line-height: 1.6;
+
+    margin: 0 0 2.5rem 0;
+
+    opacity: 0.9;
+
+}
+
+
+
+.contact-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 1rem 2.5rem;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+    background-color: var(--prime-yellow);
+
+    color: var(--ever-teal);
+
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+
+}
+
+
+
+.contact-btn:hover {
+
+    background-color: var(--white);
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+.contact-btn span {
+
+    margin-left: 12px;
+
+    font-size: 1.5rem;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.contact-btn:hover span {
+
+    transform: translateX(5px);
+
+}
+
+
+
+/* =========================================
+
+   9. RESPONSIVE BREAKPOINTS
+
+========================================= */
+
+@media (max-width: 992px) {
+
+    .world-changing-modern .content-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+
+    }
+
+    
+
+    .world-changing-modern .image-content {
+
+        min-height: 350px;
+
+    }
+
+    
+
+    .world-changing-modern h2 {
+
+        font-size: clamp(2rem, 5vw, 2.8rem);
+
+    }
+
+    
+
+    .suzlon-evolving h2, .our-logo h2, .behaviours-header h2 { 
+
+        font-size: 2.2rem; 
+
+    }
+
+    
+
+    .suzlon-evolving h3 { 
+
+        font-size: 1.3rem; 
+
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .nav-links { display: none; }
+
+    
+
+    .video-banner {
+
+        padding: 0 2rem;
+
+        height: 50vh;
+
+    }
+
+    
+
+    .search-container { margin-top: -2.5rem; }
+
+    .search-box input { padding: 1rem; }
+
+    .search-box button { padding: 0 1.5rem; }
+
+    
+
+    .brand-book-section { padding: 60px 5%; }
+
+    .logo-card { border-radius: 0 30px 0 30px; }
+
+    .tech-stack { padding: 20px; font-size: 1rem; }
+
+}
+/* =========================================
+   SECTION 10: Good Energies Manifesto
+========================================= */
+.manifesto-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 8%; /* Maintains global 8% left margin */
+    overflow: hidden;
+    background-color: #79BCE5; /* Fallback sky blue */
+}
+
+.manifesto-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center bottom; /* Keeps focus on the figures at the bottom */
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Crosshair Visual Devices */
+.crosshair-vertical {
+    position: absolute;
+    top: 0;
+    left: calc(8% - 30px); /* Positioned just to the left of the text margin */
+    width: 2px;
+    height: 100%;
+    background-color: var(--ever-teal);
+    z-index: 2;
+    opacity: 0.6;
+}
+
+.crosshair-horizontal {
+    position: absolute;
+    top: 300px; /* Adjusts where the horizontal line crosses */
+    left: calc(8% - 40px);
+    width: 100vw;
+    height: 2px;
+    background-color: var(--prime-yellow);
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.manifesto-content {
+    position: relative;
+    z-index: 3;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.manifesto-heading {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 50px; /* Pushes content below the horizontal line */
+}
+
+.manifesto-heading .yellow-text {
+    color: var(--prime-yellow);
+}
+
+.manifesto-subheading {
+    color: var(--prime-yellow);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.manifesto-body p {
+    color: var(--white);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Helps text readability against clouds */
+}
+
+.manifesto-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.manifesto-branding .teal-text {
+    color: var(--ever-teal);
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.manifesto-logo {
+    height: 40px;
+}
+
+.manifesto-url {
+    position: absolute;
+    bottom: 30px;
+    right: 5%;
+    z-index: 3;
+    font-family: 'Monda', Tahoma, sans-serif;
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .manifesto-section {
+        padding: 80px 8%;
+    }
+    
+    .crosshair-vertical, .crosshair-horizontal {
+        display: none; /* Hide on mobile to keep layout clean */
+    }
+    
+    .manifesto-heading {
+        margin-bottom: 2rem;
+    }
+    
+    .manifesto-url {
+        right: auto;
+        left: 8%;
+        bottom: 20px;
+    }
+}
+
+/* =========================================
+   SECTION 8.5: Architecture Bar 
+========================================= */
+.architecture-bar {
+    width: 100%;
+    background-color: var(--humble-beige);
+    padding: 3.5rem 8%; /* Matches the 8% left-align system */
+    color: var(--ever-teal);
+    border-bottom: 1px solid rgba(0, 112, 120, 0.15); /* Subtle separation line */
+}
+
+.architecture-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1500px;
+}
+
+.arch-subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.arch-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+}
+
+.arch-items {
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.arch-item {
+    display: flex;
+    align-items: center;
+/*    gap: 0.1rem;*/
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Specific styling for the uploaded spark/crosshair icon */
+.spark-icon {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 25px; /* Visual optical alignment with the text baseline */
+    display: block;
+    object-fit: contain;
+}
+
+.arch-url {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .arch-items {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .arch-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+    }
+    
+    .arch-items {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+/* =========================================
+   SECTION 10: Brand on a Page
+========================================= */
+.boap-section {
+    background-color: var(--white);
+    padding: 100px 8%;
+    overflow: hidden;
+}
+
+.boap-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left side image styling */
+.boap-image {
+    width: 100%;
+    /* Adds a sleek, premium shadow so the document looks like paper resting on the screen */
+    box-shadow: 0 25px 50px rgba(0, 112, 120, 0.15); 
+    border: 1px solid rgba(0, 112, 120, 0.05);
+}
+
+.boap-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Right side text & button styling */
+.boap-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.boap-text .main-heading {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.5px;
+}
+
+.boap-text .teal-text {
+    color: var(--ever-teal);
+}
+
+.boap-text .yellow-highlight-block {
+    color: var(--prime-yellow);
+    background-color: var(--ever-teal);
+    padding: 8px 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 992px) {
+    .boap-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .boap-image {
+        order: 2; /* Drops the image below the text on mobile screens */
+    }
+    
+    .boap-text {
+        order: 1; /* Keeps the heading and button at the top on mobile */
+    }
+}
+
+/* =========================================
+   PAGE HERO & JUMP NAVIGATION
+========================================= */
+.page-hero {
+    background-color: var(--ever-teal);
+    color: var(--white);
+    padding: 100px 8% 80px 8%;
+}
+
+.page-hero-content .category-tag {
+    color: var(--prime-yellow);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.page-hero-content h1 {
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.page-hero-content p {
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    color: var(--humble-beige);
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+.page-jump-nav {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 8%;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0, 112, 120, 0.1);
+    top: 70px;
+    z-index: 90;
+    overflow-x: auto;
+}
+
+.page-jump-nav a {
+    text-decoration: none;
+    color: var(--ever-teal);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.page-jump-nav a:hover {
+    color: var(--prime-yellow);
+}
+
+/* =========================================
+   LOGO PAGE SPECIFIC SECTION STYLES
+========================================= */
+.logo-section-white {
+    background-color: var(--white);
+}
+
+.logo-section-beige {
+    background-color: var(--white);
+}
+
+.section-title-group h2 {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    color: var(--ever-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title-group .yellow-bar {
+    width: 50px;
+    height: 4px;
+    background-color: var(--prime-yellow);
+    margin-bottom: 3rem;
+}
+
+/* Asset Cards */
+.guideline-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.asset-card {
+    background: var(--white);
+    border: 1px solid rgba(0, 112, 120, 0.08);
+}
+
+.asset-preview-box {
+    height: auto;
+	width: full;
+/*    background-color: var(--humble-beige);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.asset-preview-box.dark-box {
+    background-color: var(--ever-teal);
+	height: auto;
+	width: full;
+}
+
+.asset-preview-box img {
+/*    max-height: 24rem;*/
+   
+	height: auto;
+	max-width: 1080px;
+}
+
+.invert-logo {
+    filter: brightness(0) invert(1);
+}
+
+.asset-details {
+    padding: 2rem;
+}
+
+.asset-details h3 {
+    color: var(--ever-teal);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.asset-details p {
+    color: #4A4A4A;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Two Column Layout & Rules */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.rule-box {
+    background-color: var(--humble-beige);
+    padding: 3rem;
+    border-left: 4px solid var(--ever-teal);
+}
+
+.rule-box h3 {
+    color: var(--ever-teal);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.rule-box p {
+    color: #4A4A4A;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.spec-callout {
+    background-color: var(--ever-teal);
+    color: var(--prime-yellow);
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spec-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 112, 120, 0.1);
+    color: #4A4A4A;
+}
+
+/* Swatches */
+.colour-swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/*    gap: 2rem;*/
+}
+
+.swatch-card {
+/*    background-color: var(--white);*/
+/*    padding: 1.5rem;*/
+/*    border: 1px solid rgba(0, 112, 120, 0.05);*/
+}
+
+.swatch-header {
+    height: 120px;
+    margin-bottom: 1.5rem;
+}
+
+.ever-teal-bg { background-color: var(--ever-teal); }
+.prime-yellow-bg { background-color: var(--prime-yellow); }
+.white-bg { background-color: var(--white); border: 1px solid #eee; }
+
+.swatch-card h4 {
+    color: var(--ever-teal);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.swatch-card p {
+    color: #4A4A4A;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Placement Cards */
+.placement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.placement-card {
+    background-color: var(--humble-beige);
+    padding: 3rem;
+    border-top: 4px solid var(--prime-yellow);
+}
+
+.placement-card h3 {
+    color: var(--ever-teal);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.placement-card p {
+    color: #4A4A4A;
+    line-height: 1.6;
+}
+
+/* Don'ts Grid */
+.donts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.dont-card {
+    background-color: var(--white);
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(238, 118, 35, 0.2);
+    position: relative;
+}
+
+.dont-badge {
+    background-color: var(--sure-orange);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    display: inline-block;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+}
+
+.dont-card p {
+    color: #4A4A4A;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   EDITORIAL SPLIT LAYOUT
+========================================= */
+.editorial-main {
+    background-color: var(--humble-beige);
+    padding: 6rem 8%;
+}
+
+.split-layout-container {
+    display: flex;
+    gap: 5rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    align-items: flex-start; /* Required for sticky to work */
+}
+
+/* Left Sticky Side */
+.split-left {
+    flex: 0 0 35%; /* Takes up 35% of the screen width */
+    position: sticky;
+    top: 120px; /* Distance from the top of the viewport when scrolling */
+}
+
+.sticky-content .pillar-number {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--prime-yellow);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.sticky-content h1 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: var(--ever-teal);
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.sticky-content .accent-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--prime-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.sticky-content p {
+    font-size: 1.25rem;
+    color: #4A4A4A;
+    line-height: 1.6;
+}
+
+/* Right Scrolling Side */
+.split-right {
+    flex: 1; /* Takes up the remaining 65% */
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* Huge spacing between hubs */
+}
+
+/* =========================================
+   MODERN HUB CARDS (Side-by-Side Layout)
+========================================= */
+.modern-hub {
+    background-color: var(--white);
+    border: 1px solid rgba(0, 112, 120, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 112, 120, 0.08);
+    display: grid;
+    /* Splits the card: 55% image on the left, 45% text/links on the right */
+    grid-template-columns: 55% 45%; 
+    align-items: stretch;
+}
+
+.hub-visual {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.4s ease-in-out;
+}
+
+.hub-content-grid {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the text and UL */
+    gap: 2.5rem;
+}
+
+.hub-text h2 {
+    font-size: 2.2rem;
+    color: var(--ever-teal);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hub-text p {
+    font-size: 1.1rem;
+    color: #4A4A4A;
+    line-height: 1.6;
+}
+
+.hub-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   INTERACTIVE GALLERY LINKS
+========================================= */
+.interactive-links {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.interactive-links a {
+    text-decoration: none;
+    color: var(--ever-teal);
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.interactive-links a::before {
+    content: '→';
+    margin-right: 12px;
+    color: var(--prime-yellow);
+    font-size: 1.3rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover and Active States */
+.interactive-links a:hover,
+.interactive-links a.active-link {
+    color: var(--prime-yellow);
+    transform: translateX(5px);
+}
+
+.interactive-links a:hover::before,
+.interactive-links a.active-link::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+========================================= */
+@media (max-width: 1200px) {
+    .modern-hub {
+        /* Gives text slightly more room on medium screens */
+        grid-template-columns: 50% 50%; 
+    }
+    
+    .hub-content-grid {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .split-layout-container {
+        flex-direction: column; 
+        gap: 3rem;
+    }
+    
+    .split-left {
+        width: 100%;
+        position: relative; 
+        top: 0;
+    }
+    
+    .split-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .editorial-main {
+        padding: 4rem 5%;
+    }
+    
+    .modern-hub {
+        /* Stacks the image on top and text below for mobile */
+        grid-template-columns: 1fr; 
+    }
+    
+    .hub-visual {
+        height: 350px;
+        min-height: auto;
+    }
+    
+    .hub-content-grid {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
