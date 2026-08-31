@@ -105,7 +105,7 @@ export default function Home() {
 
             <div className="image-content cut-bottom-left">
               <img
-                src="https://www.suzlon.com/images/our-brand/Our%20Brand%20Banner%201920x1080.jpg"
+                src="/images/Our Brand Banner 1920x1080.jpg"
                 alt="The Changing World of Energy"
               />
             </div>
