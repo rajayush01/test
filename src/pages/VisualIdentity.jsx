@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LinkSwapHub from "../components/LinkSwapHub";
+import usePageBodyClass from "../hooks/usePageBodyClass";
 
 const navItems = [
   { label: "The Good Expression", to: "/" },
@@ -11,6 +12,8 @@ const navItems = [
 ];
 
 export default function VisualIdentity() {
+  usePageBodyClass("nav-page");
+
   return (
     <>
       <Header navItems={navItems} />

@@ -1,12 +1,12 @@
 /* =========================================
    1. EDITORIAL SPLIT LAYOUT & ANIMATIONS
 ========================================= */
-.pillar-page .editorial-main {
+html.pillar-page .editorial-main {
     background-color: var(--white); 
     min-height: 100vh;
 }
 
-.pillar-page .split-layout-container {
+html.pillar-page .split-layout-container {
     max-width: 1600px;
     margin: 0 auto;
     padding: 6rem 4rem;
@@ -17,7 +17,7 @@
 }
 
 /* Scroll Reveal Base State */
-.pillar-page .modern-hub {
+html.pillar-page .modern-hub {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -27,7 +27,7 @@
 }
 
 /* Scroll Reveal Active State */
-.pillar-page .modern-hub.in-view {
+html.pillar-page .modern-hub.in-view {
     opacity: 1;
     transform: translateY(0);
 }
@@ -35,7 +35,7 @@
 /* =========================================
    2. IMMERSIVE PILLAR HERO
 ========================================= */
-.pillar-page .pillar-hero {
+html.pillar-page .pillar-hero {
     position: relative;
     width: 100%;
     height: 65vh;
@@ -50,14 +50,14 @@
     z-index: 1;
 }
 
-.pillar-page .hero-bg {
+html.pillar-page .hero-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
 }
 
-.pillar-page .hero-overlay {
+html.pillar-page .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,7 +67,7 @@
     z-index: 2;
 }
 
-.pillar-page .hero-content {
+html.pillar-page .hero-content {
     position: relative;
     z-index: 3;
     max-width: 900px;
@@ -75,7 +75,7 @@
     animation: fadeUp 1s ease forwards;
 }
 
-.pillar-page .hero-subtitle {
+html.pillar-page .hero-subtitle {
     display: block;
     font-size: 1rem;
     letter-spacing: 4px;
@@ -85,7 +85,7 @@
     font-weight: 700;
 }
 
-.pillar-page .hero-content h1 {
+html.pillar-page .hero-content h1 {
     font-size: clamp(3.5rem, 6vw, 5.5rem);
     text-transform: uppercase;
     margin: 0 0 1.5rem 0;
@@ -93,7 +93,7 @@
     text-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.pillar-page .hero-content p {
+html.pillar-page .hero-content p {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     opacity: 0.9;
     line-height: 1.6;
@@ -102,7 +102,7 @@
 }
 
 /* Scroll indicator */
-.pillar-page .scroll-indicator {
+html.pillar-page .scroll-indicator {
     position: absolute;
     bottom: 2rem;
     left: 50%;
@@ -115,13 +115,13 @@
     opacity: 0.8;
 }
 
-.pillar-page .scroll-indicator span {
+html.pillar-page .scroll-indicator span {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-.pillar-page .mouse {
+html.pillar-page .mouse {
     width: 24px;
     height: 36px;
     border: 2px solid var(--white);
@@ -129,7 +129,7 @@
     position: relative;
 }
 
-.pillar-page .mouse::before {
+html.pillar-page .mouse::before {
     content: '';
     position: absolute;
     top: 6px;
@@ -155,19 +155,19 @@
 /* =========================================
    3. STICKY LEFT SIDEBAR
 ========================================= */
-.pillar-page .split-left {
+html.pillar-page .split-left {
     position: sticky;
     top: 140px; 
     height: max-content;
     z-index: 10;
 }
 
-.pillar-page .sticky-content {
+html.pillar-page .sticky-content {
     display: flex;
     flex-direction: column;
 }
 
-.pillar-page .pillar-number {
+html.pillar-page .pillar-number {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--prime-yellow);
@@ -176,7 +176,7 @@
     display: block;
 }
 
-.pillar-page .sticky-content h1 {
+html.pillar-page .sticky-content h1 {
     font-size: clamp(3rem, 4vw, 4.5rem);
     color: var(--ever-teal);
     text-transform: uppercase;
@@ -184,14 +184,14 @@
     margin: 0 0 1.5rem 0;
 }
 
-.pillar-page .accent-line {
+html.pillar-page .accent-line {
     width: 80px;
     height: 4px;
     background-color: var(--prime-yellow);
     margin-bottom: 2rem;
 }
 
-.pillar-page .sticky-content p {
+html.pillar-page .sticky-content p {
     font-size: 1.25rem;
     color: #555;
     line-height: 1.6;
@@ -199,12 +199,12 @@
     max-width: 90%;
 }
 
-.pillar-page .page-stats {
+html.pillar-page .page-stats {
     display: flex;
     gap: 1.5rem;
 }
 
-.pillar-page .page-stats span {
+html.pillar-page .page-stats span {
     background-color: var(--humble-beige);
     color: var(--ever-teal);
     padding: 0.75rem 1.5rem;
@@ -218,7 +218,7 @@
 /* =========================================
    4. RIGHT SCROLLING FEED & PARALLAX
 ========================================= */
-.pillar-page .split-right {
+html.pillar-page .split-right {
     display: flex;
     flex-direction: column;
     gap: 8rem; 
@@ -226,7 +226,7 @@
 }
 
 /* Hub Visual Container */
-.pillar-page .hub-visual {
+html.pillar-page .hub-visual {
     width: 100%;
     height: 500px;
     position: relative;
@@ -236,7 +236,7 @@
 }
 
 /* PARALLAX WRAPPER */
-.pillar-page .parallax-wrapper {
+html.pillar-page .parallax-wrapper {
     position: absolute;
     top: -20%; /* Pushed up to allow for downward scrolling translation */
     left: 0;
@@ -246,7 +246,7 @@
 }
 
 /* The actual image */
-.pillar-page .visual-bg {
+html.pillar-page .visual-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -254,19 +254,19 @@
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.pillar-page .modern-hub:hover .visual-bg {
+html.pillar-page .modern-hub:hover .visual-bg {
     transform: scale(1.05); /* Hover Zoom stacks perfectly with JS Parallax */
 }
 
 /* Internal Nested Grid for Content */
-.pillar-page .hub-content-grid {
+html.pillar-page .hub-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: flex-start;
 }
 
-.pillar-page .hub-text h2 {
+html.pillar-page .hub-text h2 {
     font-size: 2rem;
     color: var(--ever-teal);
     text-transform: uppercase;
@@ -274,7 +274,7 @@
     line-height: 1.2;
 }
 
-.pillar-page .hub-text p {
+html.pillar-page .hub-text p {
     font-size: 1.1rem;
     color: #555;
     line-height: 1.6;
@@ -284,13 +284,13 @@
 /* =========================================
    5. SLEEK LINK LIST
 ========================================= */
-.pillar-page .hub-actions {
+html.pillar-page .hub-actions {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.pillar-page .sleek-links {
+html.pillar-page .sleek-links {
     list-style: none;
     padding: 0;
     margin: 0 0 2.5rem 0;
@@ -300,11 +300,11 @@
     gap: 0.5rem;
 }
 
-.pillar-page .sleek-links li {
+html.pillar-page .sleek-links li {
     border-bottom: 1px solid rgba(0, 112, 120, 0.1);
 }
 
-.pillar-page .sleek-links a {
+html.pillar-page .sleek-links a {
     color: var(--ever-teal);
     text-decoration: none;
     font-size: 1.05rem;
@@ -315,7 +315,7 @@
     transition: all 0.3s ease;
 }
 
-.pillar-page .sleek-links a::after {
+html.pillar-page .sleek-links a::after {
     content: "→";
     color: var(--prime-yellow);
     font-weight: bold;
@@ -324,12 +324,12 @@
     transition: all 0.3s ease;
 }
 
-.pillar-page .sleek-links a:hover {
+html.pillar-page .sleek-links a:hover {
     padding-left: 10px;
     font-weight: 700;
 }
 
-.pillar-page .sleek-links a:hover::after {
+html.pillar-page .sleek-links a:hover::after {
     opacity: 1;
     transform: translateX(0);
 }
@@ -337,7 +337,7 @@
 /* =========================================
    6. SUZLON.COM CORPORATE BUTTON STYLE
 ========================================= */
-.pillar-page .suzlon-btn {
+html.pillar-page .suzlon-btn {
     display: inline-flex;
     align-items: center;
     background-color: var(--ever-teal);
@@ -353,31 +353,31 @@
     transition: all 0.3s ease;
 }
 
-.pillar-page .suzlon-btn:hover {
+html.pillar-page .suzlon-btn:hover {
     background-color: var(--prime-yellow);
     color: var(--ever-teal);
     border-color: var(--prime-yellow);
     box-shadow: 0 8px 25px rgba(0, 112, 120, 0.25);
 }
 
-.pillar-page .suzlon-btn .arrow {
+html.pillar-page .suzlon-btn .arrow {
     margin-left: 12px;
     font-size: 1.25rem;
     transition: transform 0.3s ease;
 }
 
-.pillar-page .suzlon-btn:hover .arrow {
+html.pillar-page .suzlon-btn:hover .arrow {
     transform: translateX(6px);
 }
 
 /* Primary Highlight Variant */
-.pillar-page .suzlon-btn-yellow {
+html.pillar-page .suzlon-btn-yellow {
     background-color: var(--prime-yellow);
     color: var(--ever-teal);
     border-color: var(--prime-yellow);
 }
 
-.pillar-page .suzlon-btn-yellow:hover {
+html.pillar-page .suzlon-btn-yellow:hover {
     background-color: var(--white);
     color: var(--ever-teal);
     border-color: var(--white);
@@ -387,46 +387,46 @@
    7. RESPONSIVE DESIGN
 ========================================= */
 @media (max-width: 1200px) {
-    .pillar-page .split-layout-container {
+    html.pillar-page .split-layout-container {
         gap: 3rem;
         padding: 4rem 2rem;
     }
-    .pillar-page .hub-content-grid {
+    html.pillar-page .hub-content-grid {
         gap: 2rem;
     }
 }
 
 @media (max-width: 992px) {
     /* Stack the split layout on tablets */
-    .pillar-page .split-layout-container {
+    html.pillar-page .split-layout-container {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
     
-    .pillar-page .split-left {
+    html.pillar-page .split-left {
         position: relative;
         top: 0;
         border-bottom: 2px solid rgba(0, 112, 120, 0.1);
         padding-bottom: 2rem;
     }
 
-    .pillar-page .sticky-content p {
+    html.pillar-page .sticky-content p {
         max-width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     /* Stack the inner hub content on mobile */
-    .pillar-page .hub-content-grid {
+    html.pillar-page .hub-content-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .pillar-page .hub-visual {
+    html.pillar-page .hub-visual {
         height: 350px;
     }
     
-    .pillar-page .split-layout-container {
+    html.pillar-page .split-layout-container {
         padding: 3rem 1.5rem;
     }
 }

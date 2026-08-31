@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useParallax from "../hooks/useParallax";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageBodyClass from "../hooks/usePageBodyClass";
 
 const navItems = [
   { label: "The Good Identity", to: "/the-good-identity-legacy" },
@@ -12,11 +13,12 @@ const navItems = [
 ];
 
 export default function LearnCheckApply() {
+  usePageBodyClass("pillar-page");
   useParallax();
   useRevealOnScroll(".modern-hub", "in-view");
 
   return (
-    <div className="pillar-page">
+    <>
       <Header
         logoSrc="https://www.suzlon.com/images/logo-teal.svg"
         logoHeight={30}
@@ -231,6 +233,6 @@ export default function LearnCheckApply() {
           </div>
         </div>
       </Footer>
-    </div>
+    </>
   );
 }

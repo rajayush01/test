@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useParallax from "../hooks/useParallax";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageBodyClass from "../hooks/usePageBodyClass";
 import "../styles/startWithGood.css";
 
 const navItems = [
@@ -13,11 +14,12 @@ const navItems = [
 ];
 
 export default function StartWithGood() {
+  usePageBodyClass("pillar-page");
   useParallax();
   useRevealOnScroll(".modern-hub", "in-view");
 
   return (
-    <div className="pillar-page">
+    <>
       <Header
         logoTo="/the-good-identity-legacy"
         logoSrc="https://www.suzlon.com/images/logo-teal.svg"
@@ -207,6 +209,6 @@ export default function StartWithGood() {
           </div>
         </div>
       </Footer>
-    </div>
+    </>
   );
 }

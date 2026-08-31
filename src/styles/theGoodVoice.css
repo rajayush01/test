@@ -1,26 +1,26 @@
-/* Page-specific styles ported from thegoodvoice.html's inline <style> block */
+/* Page-specific styles ported from thegoodvoice.html's inline \3c style> block */
 
 /* 1. MAGNETIC SCROLL STOP */
-html {
+.voice-page {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
     scroll-padding-top: 100px;
 }
 
-.page-hero,
-.voice-grid,
-.support-section {
+.voice-page .page-hero,
+.voice-page .voice-grid,
+.voice-page .support-section {
     scroll-snap-align: center;
 }
 
 /* 2. SIDE-BY-SIDE GRID LAYOUT (COMPACT) */
-.voice-section-container {
+.voice-page .voice-section-container {
     max-width: 1200px;
     margin: 1rem auto 4rem auto;
     padding: 0 2rem;
 }
 
-.voice-grid {
+.voice-page .voice-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -28,7 +28,7 @@ html {
     justify-items: center;
 }
 
-.voice-text-card {
+.voice-page .voice-text-card {
     background: transparent;
     border: none;
     padding: 0;
@@ -40,12 +40,12 @@ html {
     max-width: 420px;
 }
 
-.voice-text-card:hover {
+.voice-page .voice-text-card:hover {
     transform: translateY(-4px);
 }
 
 /* 3. EMBEDDED A4 BANNER STYLING */
-.embedded-banner {
+.voice-page .embedded-banner {
     aspect-ratio: 1 / 1.414;
     width: 100%;
     background-color: #007078;
@@ -62,16 +62,16 @@ html {
     transition: transform 0.3s ease;
 }
 
-.embedded-banner.alt-tone {
+.voice-page .embedded-banner.alt-tone {
     background-color: #005a61;
     box-shadow: 0 20px 40px rgba(0, 90, 97, 0.2);
 }
 
-.embedded-banner:hover {
+.voice-page .embedded-banner:hover {
     transform: scale(1.02);
 }
 
-.embedded-banner h3 {
+.voice-page .embedded-banner h3 {
     color: #FFC627;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 700;
@@ -81,7 +81,7 @@ html {
     z-index: 2;
 }
 
-.embedded-banner p {
+.voice-page .embedded-banner p {
     color: #FFFFFF !important;
     font-size: clamp(0.95rem, 1.8vw, 1.15rem);
     line-height: 1.6;
@@ -90,7 +90,7 @@ html {
     z-index: 2;
 }
 
-.accent-shape-1 {
+.voice-page .accent-shape-1 {
     position: absolute;
     bottom: -15%;
     right: -15%;
@@ -101,7 +101,7 @@ html {
     z-index: 1;
 }
 
-.accent-shape-2 {
+.voice-page .accent-shape-2 {
     position: absolute;
     top: 10%;
     left: -10%;
@@ -112,7 +112,7 @@ html {
     z-index: 1;
 }
 
-.brand-logo-area {
+.voice-page .brand-logo-area {
     position: absolute;
     bottom: 6%;
     left: 10%;
@@ -124,30 +124,30 @@ html {
     z-index: 2;
 }
 
-.voice-actions {
+.voice-page .voice-actions {
     display: flex;
     justify-content: flex-start;
 }
 
 /* 4. SCROLL REVEAL ANIMATION */
-.reveal {
+.voice-page .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-.reveal.active {
+.voice-page .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 900px) {
-    .voice-grid {
+    .voice-page .voice-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    .voice-text-card {
+    .voice-page .voice-text-card {
         max-width: 450px;
     }
 }

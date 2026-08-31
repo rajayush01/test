@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useRevealOnScroll from "../hooks/useRevealOnScroll";
+import usePageBodyClass from "../hooks/usePageBodyClass";
 import "../styles/theGoodVoice.css";
 
 const navItems = [
@@ -12,6 +13,8 @@ const navItems = [
 ];
 
 export default function TheGoodVoice() {
+  usePageBodyClass("nav-page");
+  usePageBodyClass("voice-page");
   useRevealOnScroll(".reveal", "active");
 
   return (

@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import usePageBodyClass from "../hooks/usePageBodyClass";
 import "../styles/goodEnergyPeople.css";
 
 const navItems = [
@@ -11,8 +12,11 @@ const navItems = [
 ];
 
 export default function GoodEnergyPeople() {
+  usePageBodyClass("nav-page");
+  usePageBodyClass("ge-page");
+
   return (
-    <div className="ge-page">
+    <>
       <Header navItems={navItems} />
 
       <main className="editorial-main">
@@ -131,6 +135,6 @@ export default function GoodEnergyPeople() {
         buttonHref="mailto:corpcom@suzlon.com"
         buttonLabel="Contact Central Studio"
       />
-    </div>
+    </>
   );
 }

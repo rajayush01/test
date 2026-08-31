@@ -1,6 +1,6 @@
 /* Page-specific styles ported from good-energy-people.html's inline <style> block */
 
-html, body {
+html.ge-page, html.ge-page body {
     scroll-behavior: auto !important;
     scroll-snap-type: none !important;
     height: auto !important;
