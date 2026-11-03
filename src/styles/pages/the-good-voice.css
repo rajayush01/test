@@ -1,0 +1,135 @@
+/* thegoodvoice.html <style> — legacy rules kept intact, placed in the Tailwind "components" layer
+   so utility classes in the TSX still win (same as inline styles did). */
+@layer components {
+
+        /* =========================================
+           SCROLL REVEAL ANIMATION 
+        ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           SPEAK WITH GOODNESS: STACKED LAYOUT
+        ========================================= */
+        /* Main container with standard margins */
+        .voice-section-container {
+            max-width: 1200px;
+            margin: 4rem auto 6rem auto; 
+            padding: 0 8%; /* Matches your standard page margins */
+        }
+
+/* Stacks the cards one below another */
+        .voice-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem; 
+            margin-top: 5rem; /* Adds the gap you want on top */
+        }
+
+        /* The card wrapper spans full width of the container */
+        .voice-text-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease;
+        }
+
+        .voice-text-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* The wide horizontal banners - Upgraded to a 2-column Grid */
+        .embedded-banner {
+			 clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            width: 100%;
+            background-color: var(--ever-teal, #007078);
+/*            border-radius: 12px;*/
+            padding: 0 0 0 4rem;
+/*            box-shadow: 0 20px 40px rgba(0, 112, 120, 0.15);*/
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* Text gets slightly more space than the image */
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Darker teal for the second banner */
+        .embedded-banner.alt-tone {
+/*            background-color: #005a61; */
+        }
+
+        .banner-text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .embedded-banner h3 {
+            color: var(--prime-yellow, #FFC627);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
+        }
+
+        .embedded-banner p {
+            color: #FFFFFF;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin: 0 0 2rem 0;
+        }
+        
+        /* New Image Container Styles */
+.banner-image-content {
+            width: 70rem;
+            height: 30rem;
+            min-height: 300px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+/*            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); */
+        }
+
+        .banner-image-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;/* removed: invalid declaration in the original, ignored by browsers */
+        }
+
+        /* Mobile adjustments for the banners */
+        @media (max-width: 900px) {
+            .embedded-banner {
+                grid-template-columns: 1fr; /* Stacks text and image on mobile */
+                padding: 3rem 2rem;
+                gap: 2.5rem;
+            }
+            .banner-image-content {
+                min-height: 250px;
+                order: -1; /* Forces the image to always show ABOVE the text on mobile screens */
+            }
+        }
+		/* Adds the customized chamfer cuts on top-right and bottom-left to images */
+        .chamfer-image-cut {
+            /* clip-path cuts: 
+               Start (0,0) -> 
+               Cut Top-Right (calc(100% - 30px), 0) to (100%, 30px) -> 
+               Bottom-Right (100%, 100%) -> 
+               Cut Bottom-Left (30px, 100%) to (0, calc(100% - 30px)) 
+            */
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            transition: clip-path 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Minor transition effect for card image during hovering */
+        .voice-text-card:hover .chamfer-image-cut {
+            clip-path: polygon(0 0, calc(100% - 35px) 0, 100% 35px, 100% 100%, 35px 100%, 0 calc(100% - 35px));
+        }
+    
+}

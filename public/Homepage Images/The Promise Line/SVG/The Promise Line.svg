@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #007278;
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-3 {
+        fill: #f6f3e4;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        font-family: Monda-Regular, Monda;
+        font-size: 11.71px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-5, .cls-6 {
+        fill: #007278;
+      }
+
+      .cls-7 {
+        fill: #ffc600;
+        font-size: 93.99px;
+      }
+
+      .cls-7, .cls-6 {
+        font-family: Monda-Bold, Monda;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+
+      .cls-6 {
+        font-size: 16.39px;
+      }
+.word {
+        opacity: 0;
+        animation: revealWord 3s forwards;
+    }
+    
+    .w1 { animation-delay: 0.2s; } /* GOOD */
+    .w2 { animation-delay: 0.7s; } /* ENERGIES */
+    .w3 { animation-delay: 1.2s; } /* THAT */
+    .w4 { animation-delay: 1.7s; } /* WORK */
+
+    @keyframes revealWord {
+        0% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
+  </defs>
+  <rect class="cls-3" x="0" y="2.11" width="1280" height="720"/>
+  <g>
+    <g>
+      <text class="cls-7" transform="translate(44.51 174.21)"><tspan x="0" y="0">GOOD</tspan></text>
+      <text class="cls-7" transform="translate(50.2 590.54)"><tspan x="0" y="0">THAT WORK</tspan></text>
+      <text class="cls-5" transform="translate(903.35 146.41)"><tspan x="0" y="0">Beneficial, for customers, communities, economies, </tspan><tspan x="0" y="14.05">and the e</tspan><tspan class="cls-4" x="51.18" y="14.05">n</tspan><tspan x="58.17" y="14.05">vironment, while infusing positive human energy </tspan><tspan x="0" y="28.1">into every project.</tspan></text>
+      <text class="cls-6" transform="translate(903.35 125.38)"><tspan x="0" y="0">(what we create)</tspan></text>
+      <text class="cls-7" transform="translate(43.32 382.37)"><tspan x="0" y="0">ENERGIES</tspan></text>
+      <text class="cls-5" transform="translate(903.09 382.37)"><tspan x="0" y="0">Embodies the clean, renewable power we harness and scale.</tspan></text>
+      <text class="cls-6" transform="translate(903.09 361.35)"><tspan x="0" y="0">(what we deliver)</tspan></text>
+      <text class="cls-5" transform="translate(903 562.8)"><tspan x="0" y="0">Delivering on demand, performing under pressure, </tspan><tspan x="0" y="14.05">and pr</tspan><tspan class="cls-1" x="34.9" y="14.05">o</tspan><tspan x="41.59" y="14.05">ving capability through consistent execution, </tspan><tspan x="0" y="28.1">shifting from promise to performance.</tspan></text>
+      <text class="cls-6" transform="translate(903 541.77)"><tspan x="0" y="0">(how we prove it)</tspan></text>
+      <line class="cls-2" x1="347.38" y1="174.21" x2="895.85" y2="174.21"/>
+      <line class="cls-2" x1="572.15" y1="382.37" x2="895.85" y2="382.37"/>
+    </g>
+    <line class="cls-2" x1="654.35" y1="590.54" x2="895.85" y2="590.54"/>
+  </g>
+</svg>

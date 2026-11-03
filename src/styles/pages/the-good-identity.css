@@ -1,0 +1,320 @@
+/* TheGoodIdentity.html <style> — legacy rules kept intact, placed in the Tailwind "components" layer
+   so utility classes in the TSX still win (same as inline styles did). */
+@layer components {
+
+        /* =========================================
+           GLOBAL RESET (Fixes the Slider Bleed)
+        ========================================= */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* =========================================
+           SUZLON.COM TYPOGRAPHY MATCH
+        ========================================= */
+        body, html, .editorial-main {
+            font-family: 'Monda', Arial, Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =========================================
+           PREMIUM CHOREOGRAPHED SCROLL REVEAL 
+        ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal .showcase-canvas {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 1s ease-out 0.2s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s; 
+        }
+        .reveal.active .showcase-canvas {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reveal .showcase-controls {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out 0.4s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+        }
+        .reveal.active .showcase-controls {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           HORIZONTAL GALLERY SHOWCASE LAYOUT
+        ========================================= */
+        .hubs-container {
+            max-width: 1800px;
+            margin: auto; /* REDUCED TOP/BOTTOM GAP */
+            padding: auto;
+        }
+
+        .showcase-hub {
+            background: var(--humble-beige, #F8F7F2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: auto; /* REDUCED INTER-HUB SPACING */
+            display: grid;
+            grid-template-columns: 75% 25%; 
+            height: calc(100vh - 120px); 
+            min-height: 500px;
+        }
+
+        /* 1. The Presentation Canvas & Slider Track */
+        .showcase-canvas {
+            width: 100%;
+            height: 100%; 
+            background-color: transparent; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .slide-item {
+            flex: 0 0 100%; 
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .slide-item img, .slide-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        /* 1b. Navigation Dots Container */
+        .slider-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 112, 120, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--ever-teal, #007078);
+            transform: scale(1.3);
+        }
+
+        /* 2. Control Panel */
+        .showcase-controls {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            gap: 1rem; 
+            padding: 1.5rem; 
+            background-color: transparent; 
+            border-left: none; 
+            overflow-y: auto; 
+            height: 100%; 
+        }
+
+        .showcase-info h2 {
+            font-family: 'Monda', sans-serif;
+            font-size: clamp(1.6rem, 2.2vw, 2.2rem); 
+            font-weight: 700;
+            color: var(--ever-teal, #007078);
+            text-transform: none; 
+            letter-spacing: -0.5px; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.15;
+        }
+
+        .showcase-info p {
+            font-family: 'Monda', sans-serif;
+            font-size: 1rem; 
+            font-weight: 400;
+            color: #4A4A4A;
+            line-height: 1.5; 
+            margin-bottom: 1rem; 
+        }
+
+        /* =========================================
+           3. INLINE DYNAMIC NAVIGATION PILLS 
+        ========================================= */
+        .showcase-nav {
+            display: flex;
+            flex-direction: column; 
+            width: 100%;
+            gap: 0; 
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 112, 120, 0.15); 
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-link {
+            flex: 1; 
+            text-align: left; 
+            padding: 1rem 0; 
+            color: var(--ever-teal, #007078);
+            text-decoration: none;
+            font-family: 'Monda', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease; 
+        }
+
+        .nav-item:hover .nav-link {
+            color: #FFC627; 
+        }
+
+        .nav-item.active-item .nav-link {
+            color: #FFC627; 
+            font-weight: 700; 
+        }
+
+        .nav-download {
+            display: none; 
+            text-decoration: none;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--ever-teal, #007078);
+            padding: 0.35rem 0.8rem;
+            margin-right: 0.5rem; 
+            border-radius: 50px;
+            background-color: #ffffff;
+            border: 1px solid rgba(0, 112, 120, 0.15);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-download:hover {
+            background-color: var(--ever-teal, #007078);
+            color: #ffffff;
+            border-color: var(--ever-teal, #007078);
+        }
+
+        .nav-item.active-item .nav-download {
+            display: inline-block;
+            animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Support section spacing adjustment */
+        .support-section {
+            margin-top: 2rem;
+            padding: 3rem 1rem;
+        }
+
+        /* =========================================
+           4. RESPONSIVE MEDIA QUERIES 
+        ========================================= */
+        @media (max-width: 1200px) {
+            .showcase-hub {
+                grid-template-columns: 65% 35%;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .showcase-hub {
+                grid-template-columns: 1fr;
+                height: auto;
+                min-height: unset;
+                margin-bottom: 1.5rem;
+            }
+            .showcase-canvas {
+                min-height: 400px;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(0, 112, 120, 0.1);
+            }
+            .showcase-controls {
+                padding: 1.5rem;
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 2.5rem 5% !important;
+            }
+            .page-hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .page-hero-content p {
+                font-size: 0.95rem !important;
+            }
+            .showcase-hub {
+                margin-bottom: 1.25rem;
+            }
+            .showcase-canvas {
+                min-height: 300px;
+                padding: 0.5rem;
+            }
+            .slide-item {
+                padding: 0.75rem;
+            }
+            .showcase-controls {
+                padding: 1.25rem;
+                gap: 0.75rem;
+            }
+            .showcase-info h2 {
+                font-size: 1.35rem;
+            }
+            .showcase-info p {
+                font-size: 0.9rem;
+                margin-bottom: 0.75rem;
+            }
+            .nav-link {
+                padding: 0.75rem 0;
+                font-size: 0.75rem;
+            }
+            .slider-dots {
+                bottom: 0.75rem;
+            }
+        }
+    
+}
